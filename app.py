@@ -270,6 +270,7 @@ def run():
 
     with col1:
         st.write("")
+        image = Image.open('./Meta/newspaper.png')
 
     with col2:
         st.image(image, use_column_width=False)
