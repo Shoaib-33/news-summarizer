@@ -265,7 +265,6 @@ def extract_keywords(text):
 
 def run():
     st.title("News Summarizer (In-a-Flash)")
-    image = Image.open('./Meta/newspaper.png')
 
     col1, col2, col3 = st.columns([3, 5, 3])
 
