@@ -1,7 +1,11 @@
-# Welcome to streamlit
-
-This is the app you get when you run `streamlit hello`, extracted as its own app.
-
-Edit [Hello.py](./Hello.py) to customize this app to your heart's desire. ❤️
-
-Check it out on [Streamlit Community Cloud](https://st-hello-app.streamlit.app/)
+---
+title: My Awesome Space
+emoji: 🚀
+colorFrom: "#FF0000"
+colorTo: "#00FF00"
+sdk: streamlit
+sdk_version: 1.0.0
+app_file: app.py
+python_version: 3.9.17
+pinned: false
+---
