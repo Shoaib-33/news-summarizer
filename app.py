@@ -169,7 +169,8 @@ def fetch_news_poster(poster_link):
 def display_news_stories(news_list, quantity, target_language=None, enable_audio=False):
     for news in news_list:
         c = 0  # Initialize the counter for each news article
-        st.write('**({}) {}**'.format(c, news.title.text))
+        st.write('**<span style="color: #f0f0f0;">({}) {}</span>**'.format(c, news.title.text), unsafe_allow_html=True)
+
         news_data = Article(news.link.text)
         try:
             news_data.download()
@@ -186,20 +187,24 @@ def display_news_stories(news_list, quantity, target_language=None, enable_audio
         
         with st.expander(news.title.text):
             st.markdown(
-                '''<h6 style='text-align: justify;'>{}"</h6>'''.format(news_data.summary),
-                unsafe_allow_html=True)
+    '''<h6 style='text-align: justify; color: #f0f0f0; font-weight: bold;'>{}</h6>'''.format(news_data.summary),
+            unsafe_allow_html=True)
             st.markdown("[Read more at {}...]({})".format(news.source.text, news.link.text))
-            st.markdown(f"Estimated Read Time: {read_time_minutes} min")
+            st.markdown("<span style='color:#ffffff;'>Estimated Read Time: {} min</span>".format(read_time_minutes), unsafe_allow_html=True)
             predicted_sentiment = predict_sentiment(news_data.summary)
             sentiment_emoji = get_sentiment_emoji(predicted_sentiment)
-            st.markdown(f"Predicted Sentiment: {sentiment_emoji} ({predicted_sentiment})")
-            st.markdown(f"Category of news: {pd(news_data.summary)}")
+            st.markdown("<span style='color: #ffffff;'>Predicted Sentiment: {} ({})</span>".format(sentiment_emoji, predicted_sentiment), unsafe_allow_html=True)
 
+# Set the Category of news text with custom style
+            st.markdown("<span style='color: #ffffff;'>Category of news: {}</span>".format(pd(news_data.summary)), unsafe_allow_html=True)
             if target_language:
                 translated_summary = translate_text(news_data.summary, target_language)
-                st.markdown("**Translated Summary ({}):**".format(target_language))
-                st.markdown(translate_text(news.title.text,target_language))
-                st.markdown(translated_summary)
+                st.markdown("<span style='color: #ffffff; font-weight: bold;'>Translated Summary ({})</span>:".format(target_language), unsafe_allow_html=True)
+                news_title_translated = translate_text(news.title.text, target_language)
+
+# Set the translated text with custom style
+                st.markdown("<span style='color: #ffffff;'>{}</span>".format(news_title_translated), unsafe_allow_html=True)
+                st.markdown("<span style='color: #ffffff;'>{}</span>".format(translated_summary), unsafe_allow_html=True)
             
           
             
@@ -264,29 +269,104 @@ def extract_keywords(text):
 
 
 def run():
-    st.title("News Summarizer (In-a-Flash)")
+    
+
+# Define a custom CSS class to change the background color of the Streamlit app
+    custom_css ="""
+<style>
+    .stApp {
+        background-image: url('https://img.freepik.com/free-vector/global-technology-earth-news-bulletin-background_1017-33687.jpg?w=1380&t=st=1697978148~exp=1697978748~hmac=4943a05997b7d4461e9e581e177b3a5dcca3df44d6fa519f830ebe1b922fcfa0'); /* Replace with your image file name */
+        background-color: #333; /* Fallback color if the image is unavailable */
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-position: center center;
+        opacity: 0.9;
+    }
+</style>
+"""
+
+# Display the custom CSS using st.markdown
+    st.markdown(custom_css, unsafe_allow_html=True)
+
+# Your Streamlit app content goes here
+
+
+
+# Define a custom CSS class with styles for the centered header
+
+# Define a custom CSS class with styles for the centered header
+    custom_css = """
+<style>
+    .custom-header {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 20;
+        text-align: center;
+        color: #002366;
+        background: rgba(245, 245, 245, 0.7); /* Transparent whitish background */
+        border: 2px solid #0074D9; /* Stylish border color */
+        border-radius: 15px; /* Circular border radius for a stylish look */
+        font-family: 'Bebas Neue', sans-serif;
+        font-size: 60px;
+        text-transform: uppercase;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.3); /* Box shadow for depth and style */
+        
+    }
+    .sub-header {
+        font-size: 25px;
+        color: #f0f0f0; /* Set font color to white */
+        text-align: center; /* Center the text */
+        margin-left: 20px;
+    }
+</style>
+
+"""
+
+# Display the custom CSS using st.markdown
+    st.markdown(custom_css, unsafe_allow_html=True)
+
+# Use the custom class on your centered header element
+    st.markdown("<div class='custom-header'>NewsWaves</div>", unsafe_allow_html=True)
+    st.markdown("<div class='sub-header'>A platform to get daily latest news updates of your favorite category.</div>", unsafe_allow_html=True)
+# The rest of your Streamlit app goes here
+
+
+# The rest of your Streamlit app goes here
 
     col1, col2, col3 = st.columns([3, 5, 3])
 
     with col1:
         st.write("")
-        image = Image.open('./Meta/newspaper.png')
+        
 
-    with col2:
-        st.image(image, use_column_width=False)
+    
 
     with col3:
         st.write("")
 
-    category = ['--Select--', 'Trending🔥 News', 'Favourite💙 Topics', 'Search🔍 Topic']
+    category = ['Select any category', 'Latest News', 'Favourite News', 'Search Any News']
     cat_op = st.selectbox('Select your Category', category)
 
     if cat_op == category[0]:
         st.warning('Please select a category!')
     elif cat_op == category[1]:
-        st.subheader("✅ Trending🔥 News for you")
-        no_of_news = st.number_input('Number of News:', min_value=5, max_value=25, step=1, value=10)
-        target_language = st.text_input('Translate to Language (optional):')
+        st.markdown("<h3 style='color: #ffffff; font-weight: bold;'>Latest News for you</h3>", unsafe_allow_html=True)
+        st.markdown("<span style='color: #ffffff;'>Number of News:</span>", unsafe_allow_html=True)
+
+# Set the number of news input
+       
+
+# Set the number of news input with custom style for deep black font
+        no_of_news = st.number_input('', min_value=5, max_value=25, step=1, value=10, format="%d", key="no_of_news")
+        st.markdown("<style>div[data-baseweb='input'] input { color: #000000 !important; }</style>", unsafe_allow_html=True)
+
+        st.markdown("<span style='color: #ffffff;'>Translate to Language (optional):</span>", unsafe_allow_html=True)
+
+# Set the target language input with reduced newline
+        target_language = st.text_input('', key="target_language")
+        st.markdown("<style>div[data-baseweb='input'] input { margin-top: 0; color: #ffffff; }</style>", unsafe_allow_html=True)
         news_list = fetch_top_news()
         display_news_stories(news_list, no_of_news, target_language)
     elif cat_op == category[2]:
@@ -319,5 +399,34 @@ def run():
                 display_news_stories(news_list, no_of_news,target_language)
             else:
                 st.error(f"No News found for {user_topic}")
+
+st.markdown(
+    """
+    <style>
+        .footer {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background-color: #333;
+            color: white;
+            padding: 10px;
+            text-align: center;
+            font-size: 14px;
+        }
+    </style>
+    """,
+    unsafe_allow_html=True
+)
+
+# Display your contact information in the footer bar
+st.markdown(
+    """
+    <div class="footer">
+        Developed by:-Md Shoaib Shahriar Ibrahim | shoaibshahriar@iut-dhaka.edu | [GitHub Profile](https://github.com/Shoaib-33)
+    </div>
+    """,
+    unsafe_allow_html=True
+)
 
 run()
