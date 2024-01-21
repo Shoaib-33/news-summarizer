@@ -30,8 +30,8 @@ For users interested in delving deeper into a particular news piece, the platfor
 #### Search Functionality:
 Users have the ability to search for news on specific topics of interest, and the interface will display relevant articles within the chosen category.
 <p align="center">
-  <img src="picture/1.png" width="400" height="200" />
-  <img src="picture/2.png" width="400" height="200" />
+  <img src="picture/1.png" width="200" height="200" />
+  <img src="picture/2.png" width="200" height="200" />
 </p>
 
 ## Data
