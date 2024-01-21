@@ -2,6 +2,7 @@
 
 ## Overview:
 News Summarizer is an innovative news summarization project designed to provide users with a streamlined and personalized news consumption experience. The platform offers users the ability to access summarized versions of daily news, allowing them to make informed decisions about the articles they wish to explore in greater detail.
+<img src = "picture/Interface.png" width="900" height="400">  
 
 ## Key Features:
 
@@ -28,6 +29,10 @@ For users interested in delving deeper into a particular news piece, the platfor
 
 #### Search Functionality:
 Users have the ability to search for news on specific topics of interest, and the interface will display relevant articles within the chosen category.
+<p align="center">
+  <img src="picture/1.png" width="400" height="200" />
+  <img src="picture/2.png" width="400" height="200" />
+</p>
 
 ## Data
 Dataset was collected from [kaggle](https://www.kaggle.com/datasets/rmisra/news-category-dataset) which is the "World News Category" Dataset.The dataset has almost 1 lakh 62 thousand data and has 32 categories of features.The dataset was preprocessed and some of the features are grouped which are similar.
