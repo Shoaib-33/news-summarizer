@@ -4,8 +4,8 @@
 News Summarizer is an innovative news summarization project designed to provide users with a streamlined and personalized news consumption experience. The platform offers users the ability to access summarized versions of daily news, allowing them to make informed decisions about the articles they wish to explore in greater detail.
 <img src = "picture/Interface.png" width="900" height="400">  
 <p align="left">
-  <img src="picture/1.png" width="300" height="400" />
-  <img src="picture/2.png" width="300" height="400" />
+  <img src="picture/1.png" width="400" height="300" />
+  <img src="picture/2.png" width="400" height="300" />
 </p>
 ## Key Features:
 
