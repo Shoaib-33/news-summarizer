@@ -37,6 +37,13 @@ Users have the ability to search for news on specific topics of interest, and th
 
 ## Data
 Dataset was collected from [kaggle](https://www.kaggle.com/datasets/rmisra/news-category-dataset) which is the "World News Category" Dataset.The dataset has almost 1 lakh 62 thousand data and has 32 categories of features.The dataset was preprocessed and some of the features are grouped which are similar.
+
+
+
+## Model 
+
+During the project, experimentation with various models was conducted.Intiallty it was done using LSTM and DistilBert Model.LSTM was not good enough.The DistilBert Model, after hyperparameter tuning, achieved a stable accuracy of 74 percent. Logistic Regression outperformed random models, demonstrating a surprising accuracy of 65 percent. Ultimately, Logistic Regression was selected for its consistent and accurate categorization performance, contributing to an improved output in predicting news categories.
+
 ### Comparison 
 
 | Model                               | Accuracy |
@@ -46,10 +53,5 @@ Dataset was collected from [kaggle](https://www.kaggle.com/datasets/rmisra/news-
 | LSTM                                | 70%      |
 | Logistic Regression (with tuning)   | 65%      |
 | Random Forest                       | 62%      |
-
-
-## Model 
-
-During the project, experimentation with various models was conducted.Intiallty it was done using LSTM and DistilBert Model.LSTM was not good enough.The DistilBert Model, after hyperparameter tuning, achieved a stable accuracy of 74 percent. Logistic Regression outperformed random models, demonstrating a surprising accuracy of 65 percent. Ultimately, Logistic Regression was selected for its consistent and accurate categorization performance, contributing to an improved output in predicting news categories.
 
 
