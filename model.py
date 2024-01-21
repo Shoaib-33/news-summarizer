@@ -26,7 +26,7 @@ import joblib
 # Save the trained model to a file
 
 # To load the model back in the future
-loaded_model = joblib.load('Logisticmainmodel.pkl')
+loaded_model = joblib.load('models/Logisticmainmodel.pkl')
 
 
 def pd(text):
