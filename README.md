@@ -7,6 +7,7 @@ News Summarizer is an innovative news summarization project designed to provide 
   <img src="picture/1.png" width="360" height="300" />
   <img src="picture/2.png" width="360" height="300" />
 </p>
+
 ## Key Features:
 
 #### Global News Coverage:
